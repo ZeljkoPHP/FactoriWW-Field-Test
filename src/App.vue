@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div>
+      <Header/>
+    </div>
+    <div class="field_wrapper">
+      <Field v-for="item in fieldNames" :key="item" :name="item" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header';
+import Field from './components/Field';
+import { fieldNames } from './config';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header,
+    Field
+  },
+  data() {
+    return {
+      fieldNames: fieldNames
+    };
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@use 'scss/main';
 </style>

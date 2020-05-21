@@ -1,0 +1,18 @@
+.app {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+.field_wrapper {
+  justify-content: center;
+  border: 1px solid red;
+  display: grid;
+  grid-row-gap: 50px;
+  grid-column-gap: 50px;
+  @media all and (min-width: 426px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media all and (min-width: 1024px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

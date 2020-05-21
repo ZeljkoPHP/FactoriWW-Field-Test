@@ -1,0 +1,32 @@
+.field {
+    text-align: center;
+    width: 150px;
+    border: 1px solid blue;
+}
+.field_name {
+    height: fit-content;
+    font-size: 14px;
+    padding: 5px auto;
+    border: 1px solid lightcoral;
+}
+.field_content{
+    display: flex;
+    justify-content: space-around;
+}
+.field_errow{
+    margin: auto 0;
+    width: 100%;
+    border: 1px solid hotpink;
+}
+.field_value{
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    border: 1px solid indigo;
+}
+button {
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: lightskyblue;
+}
