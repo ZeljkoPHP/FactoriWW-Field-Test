@@ -14,8 +14,8 @@
           {{ value }}
         </div>
       </div>
-      <button v-if="valueStart" v-on:click="stop()">Stop</button>
-      <button v-else v-on:click="start()">Start</button>
+      <button class="button_start" v-if="valueStart" v-on:click="stop()">Stop</button>
+      <button class="button_stop" v-else v-on:click="start()">Start</button>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
       value: 3,
       valueStart: true,
       interval: null,
-      increase: true
+      increase: true,
     };
   },
   methods: {
@@ -60,7 +60,7 @@ export default {
     }
   },
   mounted() {
-
+    
     // TO-DO: get last value
 
     this.start();

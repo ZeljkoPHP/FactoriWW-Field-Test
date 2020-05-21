@@ -31,7 +31,16 @@
     font-size: 30px;
     font-weight: 700;
 }
-button {
+.button_start {
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    background-color: rgb(219, 54, 54);
+    
+}
+.button_stop {
     font-size: 20px;
     cursor: pointer;
     border-radius: 10px;
