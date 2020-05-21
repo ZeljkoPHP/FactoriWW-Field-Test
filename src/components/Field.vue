@@ -45,9 +45,6 @@ export default {
           v = v * -1;
           this.increase = false;
         }
-
-        // TO-DO:  push to history array
-
         this.value = Math.round((this.value + v) * 10) / 10;
       }, 2000);
     },
@@ -60,9 +57,6 @@ export default {
     }
   },
   mounted() {
-    
-    // TO-DO: get last value
-
     this.start();
   },
   beforeDestroy() {
