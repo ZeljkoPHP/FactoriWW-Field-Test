@@ -23,7 +23,7 @@
 export default {
   name: 'Field',
   props: {
-    name: String
+    name: String,
   },
   data () {
     return {
@@ -46,6 +46,10 @@ export default {
           this.increase = false;
         }
         this.value = Math.round((this.value + v) * 10) / 10;
+        this.$emit('fieldValueChanged', {
+          fieldName: this.name,
+          value: this.value,
+        });
       }, 2000);
     },
     stop() {

@@ -4,7 +4,11 @@
       <Header/>
     </div>
     <div class="field_wrapper">
-      <Field v-for="item in fieldNames" :key="item" :name="item" />
+      <Field
+        v-for="(item, index) in fields"
+        :key="`field-${index}`"
+        :name="item"
+        @fieldValueChanged="updateStatistics" />
     </div>
   </div>
 </template>
@@ -22,9 +26,19 @@ export default {
   },
   data() {
     return {
-      fieldNames: fieldNames
+      fields: fieldNames,
     };
-  }
+  },
+  computed: {
+    statisticList: function() {
+      return fieldNames.reduce((a,b)=> (a[b]=[],a),{});
+    }
+  },
+  methods: {
+    updateStatistics(obj) {
+      this.statisticList[obj.fieldName].push(obj.value);
+    },
+  },
 };
 </script>
 
