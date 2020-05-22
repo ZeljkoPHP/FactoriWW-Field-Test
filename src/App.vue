@@ -1,47 +1,40 @@
 <template>
   <div id="app">
     <div>
-      <Header/>
+      <div class="header">
+        <img src="./assets/factoryWW.jpg" alt="Logo image" class="logo_img">
+        <p @click="goToStats">Statistic</p>
+     </div>
     </div>
-    <div class="field_wrapper">
-      <Field
-        v-for="(item, index) in fields"
-        :key="`field-${index}`"
-        :name="item"
-        @fieldValueChanged="updateStatistics" />
-    </div>
+    <router-view
+      @updateFields="saveFieldsValues"
+      @fieldState="fieldState"
+      :fieldsStates="fields"
+      :statisticList="statistics" />
   </div>
 </template>
-
 <script>
-import Header from './components/Header';
-import Field from './components/Field';
 import { fieldNames } from './config';
-
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Field
-  },
   data() {
     return {
-      fields: fieldNames,
+      statistics: fieldNames.reduce((a,b)=> (a[b]=[] ,a),{}),
+      fields: fieldNames.reduce((a,b)=> (a[b]=true ,a),{}),
     };
   },
-  computed: {
-    statisticList: function() {
-      return fieldNames.reduce((a,b)=> (a[b]=[],a),{});
-    }
-  },
   methods: {
-    updateStatistics(obj) {
-      this.statisticList[obj.fieldName].push(obj.value);
+    fieldState(field) {
+      this.fields[field.name] = field.started;
+    },
+    goToStats() {
+      this.$router.push('/statistic');
+    },
+    saveFieldsValues(field) {
+      this.statistics[field.name].push(field.value);
     },
   },
-};
+}
 </script>
-
 <style lang="scss">
 @use 'scss/main';
 </style>
